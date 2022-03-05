@@ -32,7 +32,9 @@ RUN xargs sudo apt-get -qq install < packages
 # because they need to be run in a certain
 # order to work.
 RUN bash /home/dev/docker/client/install.sh
-RUN ls /home/dev/apps/**/install.sh | xargs bash
+RUN bash /home/dev/apps/bash/install.sh
+RUN bash /home/dev/apps/nvim/install.sh
+RUN bash /home/dev/apps/helix/install.sh
 
 RUN sudo rm -r /home/dev/* && sudo rm -r .git
 

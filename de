@@ -3,14 +3,20 @@
 set -e
 cd "$(dirname "0")"
 
-{
-  sudo unlink /usr/local/bin/de
-} || {
-  printf ""
+function displayStartMessage() {
+	echo "Usage: de <command> [options]"
+	echo ""
+	echo "Commands:"
+	echo "   de start            Start the development environment"
+	echo "   de build            Build the development environment"
 }
 
-sudo ln -s "$PWD"/de /usr/local/bin/de
-sudo chmod +x /usr/local/bin/de
+function executeCommand() {
+	if [ -f ./.scripts/"$1".sh ]; then
+		bash ./.scripts/"$1".sh
+	else
+		displayStartMessage
+	fi
+}
 
-cd docker
-docker-compose run --rm client bash
+executeCommand "$1"
