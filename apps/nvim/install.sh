@@ -7,14 +7,12 @@ if [ -f /etc/lsb-release ]; then
   echo "Running Neovim installation for Debian based system"
 
   echo "Installing dependencies"
-  apt-get -qq update
-  apt-get -qq install nodejs npm software-properties-common curl
-  npm install -g yarn@latest
+  sudo npm install -g yarn@latest
 
   echo "Installing latest version of neovim"
-  add-apt-repository ppa:neovim-ppa/stable -y
-  apt-get update
-  apt-get install -qq neovim
+  sudo add-apt-repository ppa:neovim-ppa/stable -y
+  sudo apt-get update
+  sudo apt-get -qq install neovim
 
   echo "Installing vim plug"
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

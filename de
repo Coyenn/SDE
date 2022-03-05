@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+cd "$(dirname "0")"
+
+{
+  sudo unlink /usr/local/bin/de
+} || {
+  printf ""
+}
+
+sudo ln -s "$PWD"/de /usr/local/bin/de
+sudo chmod +x /usr/local/bin/de
+
+cd docker
+docker-compose run --rm client bash

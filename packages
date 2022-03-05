@@ -1,0 +1,10 @@
+git
+curl
+software-properties-common
+bat
+iputils-ping
+apt-transport-https
+build-essential
+ca-certificates
+libssl-dev
+wget

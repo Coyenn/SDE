@@ -5,4 +5,7 @@ services:
     image: development-environment-client
     build:
       dockerfile: docker/client/Dockerfile
-      context: ./
+      context: ../
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./Projects:/home/dev/Projects
